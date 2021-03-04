@@ -1,5 +1,5 @@
 module "proxy_subnet" {
-  source = "../../../shared_modules/networking/subnet"
+  source = "../../../modules/networking/subnet"
 
   vpc_id       = aws_vpc.prod.id
   subnet_cidrs = ["10.84.0.0/24"]
@@ -8,7 +8,7 @@ module "proxy_subnet" {
 }
 
 module "app_subnet" {
-  source = "../../../shared_modules/networking/subnet"
+  source = "../../../modules/networking/subnet"
 
   vpc_id       = aws_vpc.prod.id
   subnet_cidrs = ["10.84.5.0/24"]
@@ -17,7 +17,7 @@ module "app_subnet" {
 }
 
 module "public_routing" {
-  source = "../../../shared_modules/networking/routing"
+  source = "../../../modules/networking/routing"
 
   name       = "prod__public__rt"
   vpc_id     = aws_vpc.prod.id
@@ -32,7 +32,7 @@ module "public_routing" {
 }
 
 module "private_routing" {
-  source = "../../../shared_modules/networking/routing"
+  source = "../../../modules/networking/routing"
 
   name       = "prod__private__rt"
   vpc_id     = aws_vpc.prod.id
